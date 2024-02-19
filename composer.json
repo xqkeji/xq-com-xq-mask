@@ -1,0 +1,51 @@
+{
+    "name": "xqkeji/xq-com-xq-mask",
+    "description": "基于Bootstrap的modal组件的遮罩层的PHP的Composer包。",
+    "type": "library",
+    "license": "SSPL-1.0",
+    "autoload": {
+        "psr-4": {
+            "xqkeji\\composer\\xq-mask\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "xqkeji.cn"
+        }
+    ],
+    "extra": {
+        "post-package-install":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-xq-mask/src/":"resource/xq-mask/"
+                }]
+            }
+        ],
+        "post-package-update":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "resource/xq-mask/":"resource/xq-mask/"
+                }]
+            },
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-xq-mask/src/":"resource/xq-mask/"
+                }]
+            }
+        ],
+        "post-package-uninstall":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "resource/xq-mask/":"resource/xq-mask/"
+                }]
+            }
+        ]
+    },
+    "require": {
+        "xqkeji/composer":"^1.0"
+    }
+}
